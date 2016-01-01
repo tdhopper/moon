@@ -4,6 +4,9 @@ import datetime as dt
 import twitter as tw
 import json
 
+# Adapted the moon phase code from
+# http://smithje.github.io/bash/2013/07/08/moon-phase-prompt.html
+
 def julian(year, month, day):
     a = (14-month)/12.0
     y = year+4800-a
