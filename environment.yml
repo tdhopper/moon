@@ -1,0 +1,4 @@
+name: moon
+dependencies:
+- pip
+- python=2
