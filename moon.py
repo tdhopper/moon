@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from __future__ import print_function
+
 import datetime as dt
 import twitter as tw
 import json
@@ -38,8 +40,8 @@ def tweet(event, context):
     try:
         t.PostUpdate(status=phase())
     except Exception as e:
-        print e
+        print(e)
 
 
 if __name__ == '__main__':
-    print phase()
+    print(phase())
