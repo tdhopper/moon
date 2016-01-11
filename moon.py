@@ -20,9 +20,9 @@ def phase(year=None, month=None, day=None):
         year, month, day = today.year, today.month, today.day
     p = (julian(year, month, day) - julian(2000, 1, 6)) % 29.530588853
 
-    if    p < 1.84566: return u"🌑"  # new
-    elif p < 5.53699: return u"🌒"  # waxing crescent
-    elif p < 9.22831: return u"🌓"  # first quarter
+    if   p < 1.84566:  return u"🌑"  # new
+    elif p < 5.53699:  return u"🌒"  # waxing crescent
+    elif p < 9.22831:  return u"🌓"  # first quarter
     elif p < 12.91963: return u"🌔"  # waxing gibbous
     elif p < 16.61096: return u"🌕"  # full
     elif p < 20.30228: return u"🌖"  # waning gibbous
