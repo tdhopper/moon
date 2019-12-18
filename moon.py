@@ -3,7 +3,7 @@
 
 import datetime as dt
 import twitter as tw
-import json
+import os
 
 # Adapted the moon phase code from
 # http://smithje.github.io/bash/2013/07/08/moon-phase-prompt.html
@@ -45,8 +45,12 @@ def phase(year=None, month=None, day=None):
 
 
 def tweet(event, context):
-    with open("twitter.json", "r") as f:
-        credentials = json.load(f)
+    credentials = {
+        "consumer_key": os.environ["CONSUMER_KEY"].strip(),
+        "consumer_secret": os.environ["CONSUMER_SECRET"].strip(),
+        "token": os.environ["TOKEN"].strip(),
+        "token_secret": os.environ["TOKEN_SECRET"].strip(),
+    }
     t = tw.Api(**credentials)
     try:
         t.PostUpdate(status=phase())
