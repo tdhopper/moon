@@ -1,6 +1,0 @@
-name: moon
-dependencies:
-- pip
-- python=2
-- pip:
-    - python-twitter

@@ -1,0 +1,26 @@
+
+service: machen
+
+provider:
+  name: aws
+  runtime: python3.8
+  timeout: 15
+
+# you can overwrite defaults here
+  stage: prod
+  region: us-east-1
+
+  environment:
+    CONSUMER_KEY: ${ssm:moon_consumer_key}
+    CONSUMER_SECRET: ${ssm:moon_consumer_secret}
+    TOKEN: ${ssm:moon_token_key}
+    TOKEN_SECRET: ${ssm:moon_token_secret}
+
+functions:
+  hello:
+    handler: moon.tweet
+
+    events:
+      - schedule: cron(0 1 * * ? *)
+
+
