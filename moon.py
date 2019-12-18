@@ -51,11 +51,9 @@ def tweet(event, context):
         "token": os.environ["TOKEN"].strip(),
         "token_secret": os.environ["TOKEN_SECRET"].strip(),
     }
-    t = tw.Api(**credentials)
-    try:
-        t.PostUpdate(status=phase())
-    except Exception as e:
-        print(e)
+    auth = tw.OAuth(**credentials)
+    t = tw.Twitter(auth=auth)
+    t.statuses.update(status=phase())
 
 
 if __name__ == "__main__":
