@@ -1,5 +1,5 @@
 
-service: current_moon
+service: current-moon
 
 provider:
   name: aws
