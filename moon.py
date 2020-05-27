@@ -21,6 +21,7 @@ def julian(year, month, day):
 def phase(year=None, month=None, day=None):
     if year is None and month is None and day is None:
         today = dt.datetime.now()
+        today -= dt.timedelta(days=1) # 2020 leap day correction
         year, month, day = today.year, today.month, today.day
     p = (julian(year, month, day) - julian(2000, 1, 6)) % 29.530588853
 
